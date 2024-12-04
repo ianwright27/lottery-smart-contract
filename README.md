@@ -1,66 +1,61 @@
-## Foundry
+# Smart Contract Lottery
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Description
 
-Foundry consists of:
+This project is a decentralized lottery application built in Solidity. The contract uses Chainlink VRF to ensure provably fair randomness in selecting lottery winners. The application also implements best practices in smart contract development, including security patterns like Checks-Effects-Interactions (CEI) and error handling with custom errors.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Technologies Used
 
-## Documentation
+- **Solidity (v0.8.19)**: Core smart contract language.
+- **Chainlink VRFv2.5**: Used for verifiable randomness.
+- **Foundry**: Development framework for testing, building, and deploying smart contracts.
 
-https://book.getfoundry.sh/
+## Key Features
 
-## Usage
+- **Fairness**: Leverages Chainlink VRF to guarantee randomness.
+- **Efficiency**: Uses optimized libraries for reduced gas consumption.
+- **Security**: Implements best practices, including the Checks-Effects-Interactions pattern and custom error handling.
 
-### Build
+## Installation
 
-```shell
-$ forge build
+To set up the project locally, follow the steps below:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ianwright27/lottery-smart-contract.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd smart-contract-lottery
+   ```
+
+3. Install dependencies:
+   ```bash
+   make install
+   ```
+
+## Testing
+
+Run the tests to ensure everything is working correctly:
+
+```bash
+make test
 ```
 
-### Test
+## Deployment
 
-```shell
-$ forge test
+To deploy the contract to Sepolia testnet:
+
+```bash
+make deploy-sepolia
 ```
 
-### Format
+Ensure you have set your environment variables correctly in a `.env` file:
 
-```shell
-$ forge fmt
 ```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+SEPOLIA_RPC_URL=<your_rpc_url>
+ETHERSCAN_API_KEY=<your_etherscan_api_key>
 ```
